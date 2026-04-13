@@ -1,115 +1,96 @@
 import streamlit as st
 
 def main():
-    st.title("GTN | HOME")
-    st.write("Welcome to the GTN software suite!")
+    st.set_page_config(page_title="GTN Software Suite", page_icon="🧱", layout="centered")
+    
+    st.title("🧱 GTN | HOME")
+    st.markdown("Welcome to the **GTN software suite** for geotechnical engineering!")
+    st.markdown("---")
 
-    #st.divider()
-
-    st.write("Please select one of the following applications to access its features and tools. Each application is designed to assist you with specific tasks related to geotechnical engineering and soil mechanics.")
-
-    #*********Secciones*********
-    st.divider()
-    st.markdown("**Applications**")
-
+    st.markdown("### 📂 Applications")
 
     col1, col2, col3 = st.columns([6,1,6])
 
     with col1:
-        #----- SHALLOW FOUNDATIONS | BEARING CAPACITY
-        st.write("Shallow Foundations | Bearing Capacity")
+        st.markdown("#### 🏗️ Shallow Foundations")
+        st.markdown("*Bearing Capacity*")
         with st.expander("Click to see available apps", expanded=False): 
 
-
-            st.write("1. **CAP CARGA CDMX**: A tool to verify the load capacity of shallow foundations according to the NTC CDMX - 2023, with different equations for cohesive and frictional soils.")
-            if st.button("CAP CARGA CDMX", type="primary"):
+            st.write("1. **CAP CARGA CDMX** 🇲🇽: A tool to verify the load capacity of shallow foundations according to the NTC CDMX - 2023, with different equations for cohesive and frictional soils.")
+            if st.button("CAP CARGA CDMX", type="primary", key="btn_cap_cdmx"):
                 st.session_state.app = "CAP CARGA CDMX"
-                st.rerun()  # Rerun the app to reflect the changes in session state
+                st.rerun()
             
-            st.write("2. **CAP CARGA GDL**: A tool to verify the load capacity of shallow foundations according to the 1997 GDL regulations, with different equations for cohesive and frictional soils, and corrections for groundwater level and eccentricity.")
-            if st.button("CAP CARGA GDL", type="primary"):
+            st.write("2. **CAP CARGA GDL** 🇲🇽: A tool to verify the load capacity of shallow foundations according to the 1997 GDL regulations.")
+            if st.button("CAP CARGA GDL", type="primary", key="btn_cap_gdl"):
                 st.session_state.app = "CAP CARGA GDL"
-                st.rerun()  # Rerun the app to reflect the changes in session state
+                st.rerun()
 
-
-            st.write("3. **CAP CARGA TERZ**: A tool to verify the load capacity of shallow foundations according to Terzaghi's bearing capacity theory, with different equations for cohesive and frictional soils, and corrections for groundwater level and eccentricity.")
-            if st.button("CAP CARGA TERZ", type="primary"):
+            st.write("3. **CAP CARGA TERZ**: A tool to verify the load capacity of shallow foundations according to Terzaghi's bearing capacity theory.")
+            if st.button("CAP CARGA TERZ", type="primary", key="btn_cap_terz"):
                 st.session_state.app = "CAP CARGA TERZ"
-                st.rerun()  # Rerun the app to reflect the changes in session state
+                st.rerun()
 
-            st.write("4. **CAP CARGA PER**: A tool to verify the load capacity of shallow foundations according to the NTC of Peru, with different equations for cohesive and frictional soils, and corrections for groundwater level and eccentricity.")
-            if st.button("CAP CARGA PER", type="primary"):
+            st.write("4. **CAP CARGA PER** 🇵🇪: A tool to verify the load capacity of shallow foundations according to the NTC of Peru.")
+            if st.button("CAP CARGA PER", type="primary", key="btn_cap_per"):
                 st.session_state.app = "CAP CARGA PER"
-                st.rerun()  # Rerun the app to reflect the changes in session state
+                st.rerun()
 
-        #----- SHALLOW FOUNDATIONS |  SETTLEMENT
-        st.divider()
-        st.write("Shallow Foundations | Settlement")
+        st.markdown("---")
+        st.markdown("#### 📐 Shallow Foundations")
+        st.markdown("*Settlement*")
         with st.expander("Click to see available apps", expanded=False): 
 
             st.write("1. **ELASTIC SETTLEMENT**: A tool to calculate the elastic settlement of shallow foundations according to the theory of elasticity.")
-            if st.button("ELASTIC SETTLEMENT", type="primary"):
-                # Updates
-                st.session_state.app = "ELASTIC SETTLEMENT"    # Attribute API
-                st.rerun()  # Rerun the app to reflect the changes in session state
+            if st.button("ELASTIC SETTLEMENT", type="primary", key="btn_elastic"):
+                st.session_state.app = "ELASTIC SETTLEMENT"
+                st.rerun()
 
-    #----- GEOTECHNICAL EXPLORATION
-        st.divider()
-        st.write("Geotechnical Exploration")
+        st.markdown("---")
+        st.markdown("#### 🔬 Geotechnical Exploration")
         with st.expander("Click to see available apps", expanded=False): 
 
-            st.write("1. **EXPLO GDL**: A simple tool to determine the number and depth of boreholes for geotechnical exploration in Guadalajara, according to the guidelines provided by the city government.")
-            if st.button("EXPLO GDL", type="primary"):
-                # Updates
-                st.session_state.app = "EXPLO GDL"    # Attribute API
-                st.rerun()  # Rerun the app to reflect the changes in session state
+            st.write("1. **EXPLO GDL** 🇲🇽: A simple tool to determine the number and depth of boreholes for geotechnical exploration in Guadalajara.")
+            if st.button("EXPLO GDL", type="primary", key="btn_explo_gdl"):
+                st.session_state.app = "EXPLO GDL"
+                st.rerun()
 
     with col2:
-        st.write(" ")
-
-
+        st.write("")
 
     with col3:
-    #----- LAB TESTS
-        st.write("Laboratory Tests")
+        st.markdown("#### 🧪 Laboratory Tests")
         with st.expander("Click to see available apps", expanded=False): 
 
             st.write("1. **TRIAXIAL**: A tool to analyze the behavior of soils under triaxial stress conditions.")
-            if st.button("TRIAXIAL", type="primary"):
-                # Updates
-                st.session_state.app = "TRIAXIAL"    # Attribute API
-                st.rerun()  # Rerun the app to reflect the changes in session state
+            if st.button("TRIAXIAL", type="primary", key="btn_triaxial"):
+                st.session_state.app = "TRIAXIAL"
+                st.rerun()
 
-    #----- ROC MECHANICS
-        st.divider()
-        st.write("Rock Mechanics")
+        st.markdown("---")
+        st.markdown("#### 🪨 Rock Mechanics")
         with st.expander("Click to see available apps", expanded=False):
             
-            st.write("1. **RQD CALCULATOR**: A tool to calculate the Rock Quality Designation (RQD) based on the length of core pieces and total core length.")
-            if st.button("RQD CALCULATOR", type="primary"):
-                # Updates
-                st.session_state.app = "RQD CALCULATOR"    # Attribute API
-                st.rerun()  # Rerun the app to reflect the changes in session state
+            st.write("1. **RQD CALCULATOR**: A tool to calculate the Rock Quality Designation (RQD) based on the length of core pieces.")
+            if st.button("RQD CALCULATOR", type="primary", key="btn_rqd"):
+                st.session_state.app = "RQD CALCULATOR"
+                st.rerun()
 
-            st.write("2. **STEREONET POLE DENSITY**: A tool to create a pole density stereogram based on the strike and dip of planes, using the mplstereonet library.")
-            if st.button("STEREONET POLE DENSITY", type="primary"):
-                # Updates
-                st.session_state.app = "STEREONET POLE DENSITY"    # Attribute API
-                st.rerun()  # Rerun the app to reflect the changes in session state
+            st.write("2. **STEREONET POLE DENSITY**: A tool to create a pole density stereogram based on the strike and dip of planes.")
+            if st.button("STEREONET POLE DENSITY", type="primary", key="btn_stereonet_density"):
+                st.session_state.app = "STEREONET POLE DENSITY"
+                st.rerun()
 
-            st.write("3. **STEREOGRAM PLANE VISUALIZER**: A tool to visualize planes on a stereonet by entering their strike and dip, showing their great circles and poles using the mplstereonet library.")
-            if st.button("STEREOGRAM PLANE VISUALIZER", type="primary"):
-                # Updates
-                st.session_state.app = "STEREOGRAM PLANE VISUALIZER"    # Attribute API
-                st.rerun()  # Rerun the app to reflect the changes in session state
+            st.write("3. **STEREOGRAM PLANE VISUALIZER**: A tool to visualize planes on a stereonet.")
+            if st.button("STEREOGRAM PLANE VISUALIZER", type="primary", key="btn_stereonet_visualizer"):
+                st.session_state.app = "STEREOGRAM PLANE VISUALIZER"
+                st.rerun()
 
-    #----- RETAINING WALLS AND SLOPES
-        st.divider()
-        st.write("Retaining Walls and Slopes")
-        with st.expander("Click to see available apps", expanded=False,):
+        st.markdown("---")
+        st.markdown("#### 🧱 Retaining Walls and Slopes")
+        with st.expander("Click to see available apps", expanded=False):
             
-            st.write("1. **EARTH PRESSURE RANKINE**: A tool to calculate the active, passive, and at-rest earth pressures on retaining walls using Rankine's theory, based on soil properties and wall dimensions.")
-            if st.button("EARTH PRESSURE RANKINE", type="primary"):
-                # Updates
-                st.session_state.app = "EARTH PRESSURE RANKINE"    # Attribute API
-                st.rerun()  # Rerun the app to reflect the changes in session state
+            st.write("1. **EARTH PRESSURE RANKINE**: A tool to calculate the active, passive, and at-rest earth pressures on retaining walls using Rankine's theory.")
+            if st.button("EARTH PRESSURE RANKINE", type="primary", key="btn_earth_pressure"):
+                st.session_state.app = "EARTH PRESSURE RANKINE"
+                st.rerun()
